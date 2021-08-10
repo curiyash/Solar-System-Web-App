@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://planet-earth.png" type="Texture" id=1]
+[ext_resource path="res://sun.png" type="Texture" id=2]
+[ext_resource path="res://SolarSystem.gd" type="Script" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 24.0
+
+[node name="SolarSystem" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Sun" type="RigidBody2D" parent="."]
+mode = 1
+mass = 1000.0
+gravity_scale = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sun"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Sun"]
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 2 )
+
+[node name="Earth" type="RigidBody2D" parent="."]
+position = Vector2( 900, 300 )
+gravity_scale = 0.0
+linear_velocity = Vector2( 0, -0.001 )
+linear_damp = 0.0
+angular_damp = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Earth"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Earth"]
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 1 )
