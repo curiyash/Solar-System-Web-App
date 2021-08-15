@@ -1,4 +1,4 @@
-extends ViewportContainer
+extends Node2D
 
 
 var G = 6.67e-11 
